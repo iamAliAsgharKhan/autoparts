@@ -1,0 +1,707 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.top-bar {
+    background: #212335;
+    padding: 8px 0;
+}
+
+.top-bar-links {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.top-bar-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 14px;
+}
+
+/* Existing styles remain the same until header */
+
+.header {
+    background-color:#2B2D42;
+    width: 100%;
+    padding: 16px;
+}
+
+.header > div {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Update logo color for better visibility on dark background */
+.logo {
+    width: 300px;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+
+/* Update search container for new header */
+.search-container {
+    flex: 1;
+    margin: 0 48px;
+    position: relative;
+}
+
+/* Update contact info colors for dark background */
+.contact-info {
+    text-align: right;
+}
+
+.contact-label {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* Rest of the existing styles remain the same until sections */
+
+/* Update section containers */
+.hero,
+.search-parts,
+.projects {
+    width: 90%;
+    margin: 32px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Update container class */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* Update specific section styles */
+.search-parts {
+    background: #000;
+    margin-top: 40px;
+}
+
+.projects {
+    background: #fff;
+    margin-bottom: 40px;
+}
+
+/* Update grid layout for better spacing */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin: 32px 0;
+}
+
+/* Add section transitions */
+.hero,
+.search-parts,
+.projects {
+    transition: transform 0.3s ease;
+}
+
+.hero:hover,
+.search-parts:hover,
+.projects:hover {
+    transform: translateY(-2px);
+}
+
+/* Update project cards */
+.project-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Update header wrapper */
+.header-wrapper {
+    background-color: #2B2D42;
+    width: 100%;
+}
+
+/* Add this to your HTML structure - wrap header content */
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 300px;
+}
+
+.search-container {
+    flex: 1;
+    margin: 0 48px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+.contact-info {
+    text-align: right;
+}
+
+.contact-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.phone-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+/* Update navigation bar styles */
+.nav {
+    background-color: #f5f5f5; /* Light gray background */
+    border-bottom: 1px solid #ddd; /* Optional border for separation */
+    padding: 0;
+    position: relative;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    padding: 0 16px;
+}
+
+.nav-link {
+    padding: 16px 24px; /* Adjust padding for spacing */
+    text-decoration: none;
+    color: #333; /* Dark text color for contrast */
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff0000; /* Highlight color on hover */
+    background-color: #eaeaea; /* Slight background highlight on hover */
+    border-radius: 4px; /* Optional rounded corners for hover effect */
+}
+
+.nav-link.active {
+    background-color: #ddd; /* Active link background color */
+    color: #000; /* Active link text color */
+    border-radius: 4px; /* Optional rounded corners for active link */
+}
+
+/* Ensure no wrapping for menu items */
+.nav-container {
+    flex-wrap: nowrap;
+    gap: 8px; /* Small spacing between links */
+}
+
+/* Add scroll behavior for overflow */
+.nav-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.nav-container::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 3px;
+}
+
+.nav-container::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+
+.hero {
+    background: #f5f5f5;
+    position: relative;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.hero-image {
+    width: 100%;
+}
+
+.hero-content {
+    width: 50%;
+    padding: 32px;
+}
+
+.hero-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.upgrade-kit {
+    color: #ff0000;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 32px;
+}
+
+.feature-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list li::before {
+    content: "→";
+    color: #ff0000;
+    margin-right: 8px;
+}
+
+.buy-now {
+    display: inline-block;
+    position: relative;
+}
+
+.buy-button {
+    background: #ff0000;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.price-tag {
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    background: black;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+.price-amount {
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.nav-arrow {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+/* Add these styles to the existing CSS file */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.search-parts {
+    background: #000;
+    padding: 40px 0;
+    color: white;
+}
+
+.search-parts h2 {
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+.search-form {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.search-select {
+    flex: 1;
+    padding: 12px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+}
+
+.filter-button {
+    padding: 12px 48px;
+    background: #FFD700;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.projects {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.projects h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.projects-description {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.project-card {
+    text-align: center;
+}
+
+.before-after {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.image-container {
+    position: relative;
+    flex: 1;
+    aspect-ratio: 1; /* Makes the container a perfect square. Adjust to 16/9 or any ratio as needed. */
+    overflow: hidden; /* Ensures that images larger than the container are cropped. */
+    border-radius: 8px; /* Keeps the container's border-radius. */
+    background: #f0f0f0; /* Optional: adds a background color for visual appeal. */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio. */
+    border-radius: 8px; /* Matches the container's border-radius. */
+}
+
+.image-label {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+.project-card h3 {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #FFD700;
+}
+
+/* Add these new styles at the end of your existing CSS file */
+
+.features {
+    width: 90%;
+    margin: 32px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    padding: 48px 0;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 24px;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 16px;
+}
+
+.feature-card h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.feature-card p {
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.feature-card .feature-list {
+    list-style: none;
+    text-align: left;
+    padding-left: 24px;
+}
+
+.feature-card .feature-list li {
+    position: relative;
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.feature-card .feature-list li::before {
+    content: "✓";
+    color: #4CAF50;
+    position: absolute;
+    left: -24px;
+}
+
+.footer {
+    background: #2B2D42;
+    color: white;
+    padding: 64px 0;
+    margin-top: 64px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 48px;
+}
+
+.footer-about {
+    max-width: 300px;
+}
+
+.footer-logo {
+    width: 300px;
+    margin-bottom: 16px;
+    filter: brightness(0) invert(1);
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+}
+
+.footer h4 {
+    font-size: 20px;
+    margin-bottom: 24px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    line-height: 2;
+}
+
+.contact-phone {
+    color: #FFD700;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.contact-email {
+    color: #FFD700;
+    margin: 8px 0;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+}
+
+.subscribe-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.subscribe-button:hover {
+    background: #c82333;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-about {
+        max-width: 100%;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
+
+.categories {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.categories-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    position: relative;
+}
+
+.categories-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: red;
+    margin: 8px auto 0;
+}
+
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Now fixed to 4 items per row */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 992px) { /* For medium screens */
+    .categories-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    }
+}
+
+@media (max-width: 768px) { /* For smaller screens */
+    .categories-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    }
+}
+
+@media (max-width: 480px) { /* For extra small screens */
+    .categories-container {
+        grid-template-columns: 1fr; /* 1 item per row */
+    }
+}
+
+
+.category-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.category-image {
+    max-width: 100px;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+.category-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
