@@ -163,23 +163,16 @@
     text-align: right;
 }
 
-.contact-label {
-    font-size: 14px;
-    color: #666;
-}
-
 .phone-number {
     font-size: 24px;
     font-weight: bold;
     color: #FFD700;
 }
-
-/* Update navigation bar styles */
+/* Existing nav styles with modifications */
 .nav {
-    background-color: #f5f5f5; /* Light gray background */
-    border-bottom: 1px solid #ddd; /* Optional border for separation */
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
     padding: 0;
-    position: relative;
 }
 
 .nav-container {
@@ -188,52 +181,73 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
     padding: 0 16px;
 }
 
 .nav-link {
-    padding: 16px 24px; /* Adjust padding for spacing */
+    padding: 16px 24px;
     text-decoration: none;
-    color: #333; /* Dark text color for contrast */
+    color: #333;
     font-size: 14px;
     font-weight: 500;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+/* Updated hover styles for nav links */
 .nav-link:hover {
-    color: #ff0000; /* Highlight color on hover */
-    background-color: #eaeaea; /* Slight background highlight on hover */
-    border-radius: 4px; /* Optional rounded corners for hover effect */
+    color: #ffffff;
+    background-color: #ff0000;
 }
 
-.nav-link.active {
-    background-color: #ddd; /* Active link background color */
-    color: #000; /* Active link text color */
-    border-radius: 4px; /* Optional rounded corners for active link */
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-/* Ensure no wrapping for menu items */
-.nav-container {
-    flex-wrap: nowrap;
-    gap: 8px; /* Small spacing between links */
+.dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 16px 24px;
+    color: #333;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Add scroll behavior for overflow */
-.nav-container::-webkit-scrollbar {
-    height: 6px;
+/* Updated hover styles for dropdown toggle */
+.dropdown-toggle:hover {
+    color: #ffffff;
+    background-color: #ff0000;
 }
 
-.nav-container::-webkit-scrollbar-thumb {
-    background: #bbb;
-    border-radius: 3px;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-.nav-container::-webkit-scrollbar-thumb:hover {
-    background: #999;
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+/* Updated hover styles for dropdown content links */
+.dropdown-content a:hover {
+    color: #ffffff;
+    background-color: #ff0000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 .hero {
     background: #f5f5f5;
@@ -626,82 +640,326 @@
         flex-direction: column;
     }
 }
-
-
 .categories {
     text-align: center;
     padding: 40px 20px;
     background-color: #fff;
-}
-
-.categories-title {
+  }
+  
+  .categories-title {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
     color: #333;
     position: relative;
-}
-
-.categories-title::after {
-    content: '';
+  }
+  
+  .categories-title::after {
+    content: "";
     display: block;
     width: 50px;
     height: 4px;
     background-color: red;
     margin: 8px auto 0;
-}
-
-.categories-container {
+  }
+  
+  .categories-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Now fixed to 4 items per row */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-@media (max-width: 992px) { /* For medium screens */
+  }
+  
+  @media (max-width: 992px) {
     .categories-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+      grid-template-columns: repeat(3, 1fr);
     }
-}
-
-@media (max-width: 768px) { /* For smaller screens */
+  }
+  
+  @media (max-width: 768px) {
     .categories-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+      grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media (max-width: 480px) { /* For extra small screens */
+  }
+  
+  @media (max-width: 480px) {
     .categories-container {
-        grid-template-columns: 1fr; /* 1 item per row */
+      grid-template-columns: 1fr;
     }
-}
-
-
-.category-card {
+  }
+  
+  .category-card {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.category-card:hover {
+  }
+  
+  .category-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.category-image {
+  }
+  
+  .category-image {
     max-width: 100px;
     margin: 0 auto 15px;
     display: block;
-}
-
-.category-text {
+  }
+  
+  .category-text {
     font-size: 16px;
     font-weight: bold;
     color: #333;
     margin: 0;
+  }
+  
+  /* Add this new rule to remove the underline */
+  .category-link {
+    text-decoration: none;
+  }
+  
+
+
+
+/* Related Products Styling */
+.related-products {
+    width: 90%;
+    margin: 32px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+    text-align: center;
 }
+
+.related-products h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.related-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Ensure 4 items per row */
+    gap: 20px;
+    padding: 0 24px;
+}
+
+.related-product-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: center;
+    padding: 16px; /* Reduced padding for smaller cards */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.related-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.related-product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.related-product-card h3 {
+    font-size: 18px; /* Smaller font size */
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.related-product-price {
+    color: #e41c3b;
+    font-size: 16px; /* Smaller font size */
+    margin-bottom: 12px;
+}
+
+
+.view-details {
+    background-color: #25D366;
+    color: #fff;
+    border: none;
+    padding: 6px 12px; /* Smaller padding */
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size */
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.view-details:hover {
+    background-color: #128C33;
+}
+
+
+/* Responsive styles for the entire page */
+
+/* Base styles for smaller screens */
+@media (max-width: 1024px) {
+    .container, .nav-container, .header-content {
+      padding: 0 20px;
+    }
+  
+    .hero-container, .search-form, .projects-grid, .features-grid, .footer-grid {
+      flex-direction: column;
+    }
+  
+    .hero-content {
+      width: 100%;
+      padding: 20px 0;
+    }
+  
+    .search-form {
+      gap: 10px;
+    }
+  
+    .search-select, .filter-button {
+      width: 100%;
+    }
+  }
+  
+  /* Styles for mobile devices */
+  @media (max-width: 768px) {
+    .top-bar-links {
+      text-align: center;
+    }
+  
+    .top-bar-links a {
+      margin: 0 10px;
+    }
+  
+    .header-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+  
+    .search-container {
+      margin: 20px 0;
+      width: 100%;
+    }
+  
+    .contact-info {
+      margin-top: 20px;
+    }
+  
+    /* Responsive navigation */
+    .nav-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .nav-link, .dropdown-toggle {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    .dropdown {
+      position: static;
+    }
+  
+    .dropdown-content {
+      position: static;
+      display: none;
+      background-color: #f1f1f1;
+      box-shadow: none;
+    }
+  
+    .dropdown-content a {
+      padding-left: 24px;
+    }
+  
+    .dropdown:hover .dropdown-content {
+      display: none;
+    }
+  
+    .dropdown.active .dropdown-content {
+      display: block;
+    }
+  
+    /* Adjust grid layouts */
+    .projects-grid, .features-grid, .categories-container, .related-products-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    /* Adjust font sizes */
+    .hero-title {
+      font-size: 28px;
+    }
+  
+    .upgrade-kit {
+      font-size: 24px;
+    }
+  
+    h2 {
+      font-size: 24px;
+    }
+  
+    /* Adjust button sizes */
+    .buy-button, .filter-button, .view-details {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
+  /* Additional styles for larger mobile devices and small tablets */
+  @media (min-width: 480px) and (max-width: 768px) {
+    .projects-grid, .features-grid, .categories-container, .related-products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Styles for tablets and small desktops */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .projects-grid, .features-grid, .categories-container, .related-products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-icon {
+    font-size: 20px;
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .social-link {
+        width: 36px;
+        height: 36px;
+    }
+
+    .social-icon {
+        font-size: 18px;
+    }
+}
+
