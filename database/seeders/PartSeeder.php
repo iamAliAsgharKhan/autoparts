@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Category;
 use App\Models\Make;
 use App\Models\CarModel;
@@ -14,7 +15,6 @@ class PartSeeder extends Seeder
     public function run(): void
     {
         // Define a list of meaningful part names and descriptions
-       
         $partData = [
             ['name' => 'Engine Oil Filter', 'description' => 'High-quality oil filter for efficient engine performance.'],
             ['name' => 'Brake Pads', 'description' => 'Durable brake pads for smooth braking.'],
@@ -114,11 +114,29 @@ class PartSeeder extends Seeder
             $carModel = $carModels->where('make_id', $make->id)->random();
             $year = $years->random();
 
-            // Fetch random image URLs from Lorem Picsum API
-            $mainImage = "https://picsum.photos/seed/part{$index}/640/480";
-            $image1 = "https://picsum.photos/seed/image1{$index}/640/480";
-            $image2 = "https://picsum.photos/seed/image2{$index}/640/480";
-            $image3 = "https://picsum.photos/seed/image3{$index}/640/480";
+            // Generate placeholder image URLs
+            $mainImageUrl = "https://picsum.photos/seed/part{$index}/640/480";
+            $image1Url = "https://picsum.photos/seed/image1{$index}/640/480";
+            $image2Url = "https://picsum.photos/seed/image2{$index}/640/480";
+            $image3Url = "https://picsum.photos/seed/image3{$index}/640/480";
+
+            // Fetch the image contents
+            $mainImageContents = file_get_contents($mainImageUrl);
+            $image1Contents = file_get_contents($image1Url);
+            $image2Contents = file_get_contents($image2Url);
+            $image3Contents = file_get_contents($image3Url);
+
+            // Define storage paths (you can customize the folder structure if needed)
+            $mainImagePath = "parts/part{$index}.jpg";
+            $image1Path = "parts/part{$index}_image1.jpg";
+            $image2Path = "parts/part{$index}_image2.jpg";
+            $image3Path = "parts/part{$index}_image3.jpg";
+
+            // Save images to the 'public' disk
+            Storage::disk('public')->put($mainImagePath, $mainImageContents);
+            Storage::disk('public')->put($image1Path, $image1Contents);
+            Storage::disk('public')->put($image2Path, $image2Contents);
+            Storage::disk('public')->put($image3Path, $image3Contents);
 
             Part::create([
                 'name' => $data['name'],
@@ -127,10 +145,11 @@ class PartSeeder extends Seeder
                 'note' => "Note for {$data['name']}.",
                 'quality' => rand(0, 1) ? 'new' : 'used',
                 'stock_level' => rand(0, 100),
-                'main_image' => $mainImage,
-                'image_1' => $image1,
-                'image_2' => $image2,
-                'image_3' => $image3,
+                // Save the file paths (later you can use Storage::url($path) to display them)
+                'main_image' => $mainImagePath,
+                'image_1' => $image1Path,
+                'image_2' => $image2Path,
+                'image_3' => $image3Path,
                 'make_id' => $make->id,
                 'car_model_id' => $carModel->id,
                 'year_id' => $year->id,

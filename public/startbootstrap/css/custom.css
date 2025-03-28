@@ -1,0 +1,43 @@
+/* Pagination Override */
+[data-testid="pagination"] .page-link {
+    padding: 0.375rem 0.5rem !important;
+    font-size: 0.8rem !important;
+}
+
+[data-testid="pagination"] svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* Specific arrow button styling */
+.relative.inline-flex.items-center.rounded-l-md svg,
+.relative.inline-flex.items-center.rounded-r-md svg {
+    width: 14px !important;
+    height: 14px !important;
+    margin: auto !important;
+}
+
+/* Reduce spacing between pagination items */
+[data-testid="pagination"] .page-item {
+    margin: 0 2px;
+}
+
+/* Hover effect adjustments */
+[data-testid="pagination"] .page-link:hover {
+    background-color: #f8f9fa !important;
+}
+
+/* Active page styling */
+[data-testid="pagination"] .active .page-link {
+    background-color: #4e73df !important;
+    border-color: #4e73df !important;
+    color: white !important;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    [data-testid="pagination"] .page-link {
+        padding: 0.25rem 0.375rem !important;
+    }
+}

@@ -16,6 +16,12 @@ class CarModel extends Model
         return $this->belongsTo(Make::class);
     }
 
+    public function years()
+    {
+        return $this->hasMany(Year::class);
+    }
+
+
     public function parts()
     {
         return $this->hasMany(Part::class);

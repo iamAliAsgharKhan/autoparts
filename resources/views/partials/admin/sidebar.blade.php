@@ -35,11 +35,18 @@
         <div id="collapseInventory" class="collapse" aria-labelledby="headingInventory" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Inventory Management:</h6>
-                <a class="collapse-item" href="{{ url('/admin/parts/new') }}">New Parts</a>
+                {{-- <a class="collapse-item" href="{{ url('/admin/parts/new') }}">New Parts</a>
                 <a class="collapse-item" href="{{ url('/admin/parts/used') }}">Used Parts</a>
                 <a class="collapse-item" href="{{ url('/admin/parts/stock') }}">Stock Levels</a>
-                <a class="collapse-item" href="{{ url('/admin/parts/suppliers') }}">Suppliers</a>
+                <a class="collapse-item" href="{{ url('/admin/parts/suppliers') }}">Suppliers</a> --}}
+                
+               
                 <a class="collapse-item" href="{{ url('/admin/parts/all') }}">View All Parts</a>
+                
+                <a class="collapse-item" href="{{ route('admin.car_models.index') }}">View All Car Models</a>
+                <a class="collapse-item" href="{{ route('admin.makes.index') }}">View All Makes</a>
+                <a class="collapse-item" href="{{ route('admin.years.index') }}">View All Years</a>
+                <a class="collapse-item" href="{{ url('admin/categories/all') }}">View All Categories</a>
             </div>
         </div>
     </li>
@@ -86,7 +93,7 @@
         <div id="collapseMedia" class="collapse" aria-labelledby="headingMedia" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Media Management:</h6>
-                <a class="collapse-item" href="{{ url('/admin/media/social') }}">Social Links</a>
+                <a class="collapse-item" href="{{ route('admin.social_links.index') }}">Social Links</a>
                 <a class="collapse-item" href="{{ url('/admin/media/images') }}">Images</a>
                 <a class="collapse-item" href="{{ url('/admin/media/videos') }}">Videos</a>
                 <a class="collapse-item" href="{{ url('/admin/media/documents') }}">Documents</a>

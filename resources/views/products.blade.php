@@ -14,7 +14,7 @@
         <div class="product-grid">
             @foreach($products as $product)
                 <div class="product-card">
-                    <img src="{{ $product->main_image }}" alt="{{ $product->name }}">
+                    <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $product->name }}">
                     <h3>{{ $product->name }}</h3>
                     <p class="product-price">Rs {{ number_format($product->price, 2) }}</p>
                     <button 

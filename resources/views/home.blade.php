@@ -117,7 +117,7 @@
         <div class="related-products-grid">
             @foreach($recentProducts as $product)
                 <div class="related-product-card">
-                    <img src="{{ $product->main_image }}" alt="{{ $product->name }}">
+                    <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $product->name }}">
                     <h3>{{ $product->name }}</h3>
                     <p class="related-product-price">Rs {{ number_format($product->price, 2) }}</p>
                     <button 
@@ -141,7 +141,7 @@
         <a href="{{ route('categories.show', $category->slug) }}" class="category-link">
             <div class="category-card">
                 
-                    <img src="{{ asset($category->image) }}" alt="{{ $category->name }}" class="category-image">
+                    <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="category-image">
                     <p class="category-text">{{ $category->name }}</p>
                 
             </div>

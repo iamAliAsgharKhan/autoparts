@@ -13,7 +13,7 @@
     <section class="product-section">
         <div class="product-container">
             <div class="product-image">
-                <img src="{{ $product->main_image }}" alt="{{ $product->name }}">
+                <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $product->name }}">
             </div>
             <div class="product-details">
                 <h1 class="product-title">{{ $product->name }}</h1>
@@ -30,7 +30,7 @@
         <div class="related-products-grid">
             @foreach($relatedProducts as $relatedProduct)
                 <div class="related-product-card">
-                    <img src="{{ $relatedProduct->main_image }}" alt="{{ $relatedProduct->name }}">
+                    <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $relatedProduct->name }}">
                     <h3>{{ $relatedProduct->name }}</h3>
                     <p class="related-product-price">Rs {{ number_format($relatedProduct->price, 2) }}</p>
                     <button 

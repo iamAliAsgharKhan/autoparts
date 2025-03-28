@@ -25,6 +25,9 @@ class Part extends Model
         'category_id',
     ];
 
+
+
+    
     // Relationship to Category
     public function category()
     {
