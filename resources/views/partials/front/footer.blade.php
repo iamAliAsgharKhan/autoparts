@@ -56,11 +56,11 @@
         <div class="footer-links">
             <h4>Quick Links</h4>
             <ul>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                {{-- <li><a href="#">Blog</a></li> --}}
+                <li><a href="{{ route('about.us') }}">About Us</a></li>
+                {{-- <li><a href="#">Contact Us</a></li> --}}
+                {{-- <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li> --}}
             </ul>
         </div>
 

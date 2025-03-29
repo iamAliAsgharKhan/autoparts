@@ -8,7 +8,7 @@ use App\Http\Controllers\MakeController;
 use App\Http\Controllers\CarModelController;
 use App\Http\Controllers\YearController;
 use App\Http\Controllers\SocialLinkController;
-
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -21,8 +21,8 @@ Route::get('/api/models', [HomeController::class, 'apimodel'])->name('api.models
 Route::get('/api/years', [HomeController::class, 'apiyears'])->name('api.years');
 Route::get('/categories/{slug}', [CategoryController::class, 'publicshow'])->name('categories.show');
 
-
-
+Route::get('/projects/{project}', [HomeController::class, 'publicShow'])->name('projects.show');
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about.us');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
@@ -80,6 +80,19 @@ Route::middleware(['auth'])->group(function () {
     Route::put('admin/social-links/{social_link}', [SocialLinkController::class, 'update'])->name('admin.social_links.update');
     Route::delete('admin/social-links/{social_link}', [SocialLinkController::class, 'destroy'])->name('admin.social_links.destroy');
 
+
+ 
+
+    Route::get('admin/projects/all', [ProjectController::class, 'index'])->name('admin.projects.index');
+    Route::get('admin/projects/new', [ProjectController::class, 'create'])->name('admin.projects.create');
+    Route::post('admin/projects/store', [ProjectController::class, 'store'])->name('admin.projects.store');
+    Route::get('admin/projects/{project}', [ProjectController::class, 'show'])->name('admin.projects.show');
+    Route::get('admin/projects/{project}/edit', [ProjectController::class, 'edit'])->name('admin.projects.edit');
+    Route::put('admin/projects/{project}', [ProjectController::class, 'update'])->name('admin.projects.update');
+    Route::delete('admin/projects/{project}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
+
+
+    
 
     // Keep this route in web.php
 });

@@ -2,8 +2,8 @@
 <div class="top-bar">
         <div class="top-bar-links">
             <!-- <a href="/blog">Blog</a> -->
-            <a href="/about">About Us</a>
-            <a href="/contact">Contact Us</a>
+            <a href="{{ route('about.us') }}">About Us</a>
+            {{-- <a href="/contact">Contact Us</a> --}}
             <!-- <a href="/account">My Account</a> -->
         </div>
     </div>

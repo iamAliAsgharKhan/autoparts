@@ -9,6 +9,8 @@ use App\Models\Year;
 use App\Models\CarModel;
 use App\Models\SocialLink;
 use App\Models\Category;
+use App\Models\Project;
+
 class HomeController extends Controller
 {
     /**
@@ -33,9 +35,20 @@ class HomeController extends Controller
     {
         $makes = Make::all();
         $years = Year::all();
-
         $recentProducts = Part::latest()->take(4)->get();
-        return view('home', compact('makes', 'years','recentProducts'));
+
+        // --- Fetch Projects ---
+        // Eager load the specific relationships needed (first before/after image)
+        // Note: ->first() on relationship requires more complex loading if optimized fully.
+        // Let's load *all* before/after images for simplicity here, suitable for a few projects.
+        $projects = Project::with(['beforeImages', 'afterImages'])
+        ->latest()
+        ->take(9) // Fetch more projects (e.g., 9)
+        ->get();
+        // --------------------
+
+        // Pass projects to the view
+        return view('home', compact('makes', 'years', 'recentProducts', 'projects')); // <-- Add 'projects'
     }
 
     public function show($id){
@@ -134,4 +147,23 @@ class HomeController extends Controller
 
         return response()->json($years);
     }
+
+    public function publicShow(Project $project)
+    {
+        // Eager load all images, ordered by the 'order' column
+        $project->load(['beforeImages' => function ($query) {
+            $query->orderBy('order', 'asc');
+        }, 'afterImages' => function ($query) {
+            $query->orderBy('order', 'asc');
+        }]);
+
+        // Pass the project data to the view
+        return view('project-detail', compact('project'));
+    }
+
+    public function aboutUs()
+    {
+        return view('about-us'); // We will create this view file next
+    }
+    
 }

@@ -1,0 +1,84 @@
+.projects-slider-container {
+    position: relative; /* Needed for absolute positioning of nav buttons if added */
+    width: 100%;
+    overflow: hidden; /* Crucial: Hides the parts of the track outside the container */
+    margin-bottom: 40px; /* Keep margin from original grid */
+}
+
+.projects-slider-track {
+    display: flex; /* Arranges project cards in a row */
+    transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+    /* Width will be set by JS if needed, or rely on flex item widths */
+}
+
+/* Style individual project cards within the slider track */
+.projects-slider-track .project-card {
+    flex: 0 0 calc(100% / 3); /* Makes each card take up 1/3 of the container width */
+    box-sizing: border-box; /* Include padding/border in the width calculation */
+    padding: 0 10px; /* Add some space between cards */
+    text-align: center; /* Keep content centered */
+    /* Ensure the card itself doesn't add extra margin causing layout issues */
+    margin: 0;
+    transition: none; /* Override hover transform if it interferes with slider */
+}
+
+/* Add a wrapper link inside the card for better semantics */
+.project-card-link {
+    display: block; /* Make the link fill the card */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+}
+.project-card-link:hover h3 {
+    color: #ff0000; /* Example hover effect */
+}
+
+
+/* Responsive adjustments for the slider */
+@media (max-width: 992px) {
+    .projects-slider-track .project-card {
+        flex: 0 0 calc(100% / 2); /* Show 2 cards */
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-slider-track .project-card {
+        flex: 0 0 100%; /* Show 1 card */
+        padding: 0 5px;
+    }
+}
+
+/* Optional: Styles for Prev/Next Buttons */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
+    font-size: 1.5rem;
+}
+
+.slider-nav.prev {
+    left: 10px;
+}
+
+.slider-nav.next {
+    right: 10px;
+}
+
+.slider-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Fix for the link style in the project card */
+.project-card h3 {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.4;
+    margin-top: 10px; /* Add some space above the headline */
+}

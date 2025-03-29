@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
             CarModelSeeder::class,
             YearSeeder::class,
             PartSeeder::class,
-            SocialLinkSeeder::class
+            SocialLinkSeeder::class,
+            ProjectSeeder::class
         ]);
     }
 }

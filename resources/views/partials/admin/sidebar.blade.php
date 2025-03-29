@@ -94,9 +94,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Media Management:</h6>
                 <a class="collapse-item" href="{{ route('admin.social_links.index') }}">Social Links</a>
-                <a class="collapse-item" href="{{ url('/admin/media/images') }}">Images</a>
-                <a class="collapse-item" href="{{ url('/admin/media/videos') }}">Videos</a>
-                <a class="collapse-item" href="{{ url('/admin/media/documents') }}">Documents</a>
+                <a class="collapse-item" href="{{ route('admin.projects.index') }}">Projects</a>
+               
             </div>
         </div>
     </li>

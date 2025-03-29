@@ -45,72 +45,59 @@
     </div>
 </section>
 
+
+
+
 <section class="projects">
     <div class="container">
         <h2>AutoStore Projects</h2>
-        <p class="projects-description">Check out custom car modifications done by team of experts at AutoStore workshop!<p>
-        
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="before-after">
-                    <div class="image-container">
-                        <img src="images/btoyota.png" alt="Before">
-                        <span class="image-label">Before</span>
-                    </div>
-                    <div class="image-container">
-                        <img src="images/tafter.png" alt="After">
-                        <span class="image-label">After</span>
-                    </div>
-                </div>
-                <h3>Toyota Hilux Revo 2021 To Rocco GR Sport Conversion 2023</h3>
-            </div>
-            
-            <div class="project-card">
-                <div class="before-after">
-                    <div class="image-container">
-                        <img src="images/2b.png" alt="After">
-                        <span class="image-label">Before</span>
-                    </div>
-                    <div class="image-container">
-                        <img src="images/2a.png" alt="Before">
-                        <span class="image-label">After</span>
-                    </div>
-                </div>
-                <h3>Toyota Fortuner Upgrade With TRD Body Kit 2016 To 2021-2022</h3>
-            </div>
+        <p class="projects-description">Check out custom car modifications done by team of experts at AutoStore workshop!</p>
 
-            <div class="project-card">
-                <div class="before-after">
-                    <div class="image-container">
-                        <img src="images/btoyota.png" alt="Before">
-                        <span class="image-label">Before</span>
-                    </div>
-                    <div class="image-container">
-                        <img src="images/tafter.png" alt="After">
-                        <span class="image-label">After</span>
-                    </div>
-                </div>
-                <h3>Toyota Hilux Revo 2021 To Rocco GR Sport Conversion 2023</h3>
+        {{-- Check if there are enough projects to make a slider meaningful --}}
+        @if($projects->count() > 0)
+            <div class="projects-slider-container"> {{-- Outer container for overflow --}}
+                <div class="projects-slider-track"> {{-- Inner container that slides --}}
+                    {{-- Loop through all fetched projects --}}
+                    @foreach($projects as $project)
+                        <div class="project-card"> {{-- Each project is a slide --}}
+                            <a href="{{ route('projects.show', $project) }}" class="project-card-link"> {{-- Link the whole card --}}
+                                <div class="before-after">
+                                    <div class="image-container">
+                                        @php $beforeImage = $project->beforeImages->first(); @endphp
+                                        <img src="{{ $beforeImage ? asset('storage/' . $beforeImage->image_path) : asset('images/placeholder_before.png') }}"
+                                             alt="Before - {{ $project->headline }}">
+                                        <span class="image-label">Before</span>
+                                    </div>
+                                    <div class="image-container">
+                                        @php $afterImage = $project->afterImages->first(); @endphp
+                                        <img src="{{ $afterImage ? asset('storage/' . $afterImage->image_path) : asset('images/placeholder_after.png') }}"
+                                             alt="After - {{ $project->headline }}">
+                                        <span class="image-label">After</span>
+                                    </div>
+                                </div>
+                                <h3>{{ $project->headline }}</h3>
+                            </a>
+                        </div>
+                    @endforeach
+                </div> {{-- End slider track --}}
+
+                 {{-- Optional: Add Prev/Next Buttons if needed later
+                 <button class="slider-nav prev" aria-label="Previous Slide"><</button>
+                 <button class="slider-nav next" aria-label="Next Slide">></button>
+                 --}}
+
+            </div> {{-- End slider container --}}
+        @else
+            {{-- Displayed if $projects collection is empty --}}
+            <div class="col-12">
+                <p class="text-center text-muted mt-4">No projects available at the moment. Check back soon!</p>
             </div>
+        @endif
 
-           
-        </div>
-
-        <div class="pagination">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
     </div>
 </section>
+
+
 
 <section class="related-products">
         <h2>Recent Products</h2>
@@ -151,3 +138,115 @@
 </section>
 
 @endsection
+
+@section('additional-styles')
+<link rel="stylesheet" href="{{ asset('css/scroll.css') }}">
+
+@endsection
+@section('scripts')
+<script>
+    // --- Existing Make/Model/Year Dropdown JS ---
+    document.getElementById('make')?.addEventListener('change', function() {
+       // ... your existing code ...
+    });
+    document.getElementById('model')?.addEventListener('change', function() {
+       // ... your existing code ...
+    });
+    // --- End Existing JS ---
+
+
+    // --- Project Slider Logic ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const container = document.querySelector('.projects-slider-container');
+        const track = document.querySelector('.projects-slider-track');
+        const slides = track ? track.querySelectorAll('.project-card') : []; // Get individual slides
+
+        if (!track || !container || slides.length === 0) {
+            console.log("Project slider elements not found or no slides.");
+            return; // Exit if slider elements aren't present
+        }
+
+        let currentIndex = 0;
+        let intervalId = null;
+        const slideInterval = 5000; // Time between slides in milliseconds (5 seconds)
+
+        // --- Calculate slides to show based on container width ---
+        function getSlidesToShow() {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 992) return 2;
+            return 3; // Default
+        }
+        // ---------------------------------------------------------
+
+        function updateSliderPosition() {
+            const slidesToShow = getSlidesToShow();
+            // Calculate the width of a single slide based on the container and number shown
+            // Note: Using percentage width on cards makes this simpler
+            const totalSlides = slides.length;
+
+            // Prevent sliding if not enough slides for the current view
+            if (totalSlides <= slidesToShow) {
+                 track.style.transform = 'translateX(0%)';
+                 return; // Don't slide if all visible
+            }
+
+            // Calculate max index to prevent empty space at the end
+            const maxIndex = totalSlides - slidesToShow;
+            if (currentIndex > maxIndex) {
+                currentIndex = 0; // Loop back to start
+            } else if (currentIndex < 0) {
+                currentIndex = maxIndex; // Loop back from start (if prev button added later)
+            }
+
+             // Calculate translation percentage
+             // Each slide takes up 100 / slidesToShow percentage of the container view
+            const percentagePerSlideGroup = 100 / slidesToShow;
+            const translatePercentage = -currentIndex * percentagePerSlideGroup;
+
+            track.style.transform = `translateX(${translatePercentage}%)`;
+        }
+
+        function nextSlide() {
+            const slidesToShow = getSlidesToShow();
+            const totalSlides = slides.length;
+             if (totalSlides <= slidesToShow) return; // Don't advance if not needed
+
+             // Check if moving to the next index would exceed the max index
+             if (currentIndex + 1 > totalSlides - slidesToShow) {
+                 currentIndex = 0; // Loop back to the start
+             } else {
+                 currentIndex++;
+             }
+            updateSliderPosition();
+        }
+
+        function startInterval() {
+            stopInterval(); // Clear any existing interval first
+            intervalId = setInterval(nextSlide, slideInterval);
+        }
+
+        function stopInterval() {
+            clearInterval(intervalId);
+        }
+
+        // --- Event Listeners ---
+        container.addEventListener('mouseenter', stopInterval);
+        container.addEventListener('mouseleave', startInterval);
+        window.addEventListener('resize', () => {
+            // Recalculate position on resize, might need adjustment
+            // Resetting index might be simplest for resize
+            currentIndex = 0;
+            updateSliderPosition();
+        });
+        // ---------------------
+
+        // --- Initial Setup ---
+        updateSliderPosition(); // Set initial position
+        startInterval(); // Start the automatic sliding
+        // -------------------
+
+    });
+    // --- End Project Slider Logic ---
+
+</script>
+@endsection 
