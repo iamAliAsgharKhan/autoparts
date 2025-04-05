@@ -18,7 +18,7 @@
                     <div class="product-card">
                         <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $product->name }}">
                         <h3>{{ $product->name }}</h3>
-                        <p class="product-price">Rs {{ number_format($product->price, 2) }}</p>
+                        {{-- <p class="product-price">Rs {{ number_format($product->price, 2) }}</p> --}}
                         <a href="{{ route('product.show', $product->id) }}" class="view-details">View Details</a>
                     </div>
                 @endforeach
