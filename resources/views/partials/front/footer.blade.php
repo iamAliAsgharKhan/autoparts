@@ -68,9 +68,15 @@
             <h4>Get in Touch</h4>
             <p>Call or WhatsApp</p>
             <p class="contact-phone">+92 306 7980000</p>
+
+            <p class="contact-phone">+92 332 5069113</p>
             <p>Email Us</p>
             <p class="contact-email">
             mbasharat78@gmail.com</p>
+
+            <p>Address</p>
+            <p class="contact-email">
+                Friend Autos near Attock pump IJP Road Kacha Stop, Rawalpindi, Punjab</p>
         </div>
 
         <div class="footer-newsletter">

@@ -8,6 +8,8 @@ use App\Models\Year;
 use App\Models\CarModel;
 use App\Models\SocialLink;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
+
 class CategoryController extends Controller
 {
 
