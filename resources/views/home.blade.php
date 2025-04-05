@@ -5,7 +5,7 @@
 @section('content')
     <section class="hero">
         <div class="hero-container">
-            <img src="images/coursel.png" alt="Toyota Revo" class="hero-image">
+            <img src="images/WhatsApp Image 2025-04-05 at 18.08.27_27013b3d.jpg" alt="Toyota Revo" class="hero-image">
         </div>
 
         <div class="nav-arrows">
