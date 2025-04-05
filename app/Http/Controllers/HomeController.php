@@ -134,19 +134,12 @@ class HomeController extends Controller
 
     public function apiyears(Request $request)
     {
-        $modelId = $request->query('model_id');
-
-        if (!$modelId) {
-            return response()->json(['error' => 'model_id is required'], 400);
-        }
-
-        // Get distinct years associated with this model through existing parts
-        $years = Year::whereHas('parts', function($query) use ($modelId) {
-            $query->where('car_model_id', $modelId);
-        })->distinct()->get(['id', 'year']);
-
+        // Retrieve all available years
+        $years = Year::all(['id', 'year']);
+    
         return response()->json($years);
     }
+    
 
     public function publicShow(Project $project)
     {
