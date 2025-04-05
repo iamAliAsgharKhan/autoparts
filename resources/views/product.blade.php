@@ -17,7 +17,7 @@
             </div>
             <div class="product-details">
                 <h1 class="product-title">{{ $product->name }}</h1>
-                <p class="product-price">Rs {{ number_format($product->price, 2) }}</p>
+                {{-- <p class="product-price">Rs {{ number_format($product->price, 2) }}</p> --}}
                 <p class="product-description">{{ $product->description }}</p>
                 <button class="contact-whatsapp">Contact Us on WhatsApp</button>
             </div>
@@ -30,9 +30,9 @@
         <div class="related-products-grid">
             @foreach($relatedProducts as $relatedProduct)
                 <div class="related-product-card">
-                    <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $relatedProduct->name }}">
+                    <img src="{{ asset('storage/' . $relatedProduct->main_image) }}" alt="{{ $relatedProduct->name }}">
                     <h3>{{ $relatedProduct->name }}</h3>
-                    <p class="related-product-price">Rs {{ number_format($relatedProduct->price, 2) }}</p>
+                    {{-- <p class="related-product-price">Rs {{ number_format($relatedProduct->price, 2) }}</p> --}}
                     <button 
                     class="view-details" 
                     onclick="window.location.href='{{ route('product.show', $product->id) }}'" 

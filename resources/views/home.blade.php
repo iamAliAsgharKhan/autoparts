@@ -106,7 +106,7 @@
                 <div class="related-product-card">
                     <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $product->name }}">
                     <h3>{{ $product->name }}</h3>
-                    <p class="related-product-price">Rs {{ number_format($product->price, 2) }}</p>
+                    {{-- <p class="related-product-price">Rs {{ number_format($product->price, 2) }}</p> --}}
                     <button 
                     class="view-details" 
                     onclick="window.location.href='{{ route('product.show', $product->id) }}'" 
