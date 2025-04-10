@@ -67,9 +67,9 @@
         <div class="footer-contact">
             <h4>Get in Touch</h4>
             <p>Call or WhatsApp</p>
-            <p class="contact-phone">+92 306 7980000</p>
+            <p class="contact-phone">Name1 : +92 306 7980000</p>
 
-            <p class="contact-phone">+92 332 5069113</p>
+            <p class="contact-phone">Name2 : +92 332 5069113</p>
             <p>Email Us</p>
             <p class="contact-email">
             mbasharat78@gmail.com</p>

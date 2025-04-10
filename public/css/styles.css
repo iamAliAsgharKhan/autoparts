@@ -963,3 +963,21 @@
     }
 }
 
+
+/* Style for the labels like "Call or WhatsApp", "Email Us", "Address" */
+.footer-contact p:not([class]) { /* Targets the <p> tags WITHOUT a class */
+    font-size: 14px;      /* Make labels slightly smaller */
+    color: #adb5bd;        /* Use a slightly muted color for labels */
+    margin-bottom: 5px;   /* Reduce space below the label */
+    font-weight: normal;  /* Ensure labels are not bold */
+}
+
+/* Style for the actual contact phone number lines */
+.contact-phone {
+    color: #FFD700;         /* Keep the highlight color */
+    font-size: 18px;         /* Slightly smaller than original 24px, but prominent */
+    font-weight: 600;        /* Semi-bold or keep bold if preferred */
+    margin-bottom: 15px;     /* Add more space after a phone number line */
+    line-height: 1.4;        /* Adjust line height for readability */
+    display: block;          /* Ensure it behaves predictably as a block */
+}
