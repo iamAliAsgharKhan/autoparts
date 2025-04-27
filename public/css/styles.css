@@ -249,6 +249,7 @@
     display: block;
 }
 
+
 .hero {
     background: #f5f5f5;
     position: relative;
@@ -981,3 +982,80 @@
     line-height: 1.4;        /* Adjust line height for readability */
     display: block;          /* Ensure it behaves predictably as a block */
 }
+
+
+/* 1. Set fixed height and overflow handling for hero section */
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh; /* Full viewport height as minimum [[4]] */
+    max-height: 600px; /* Prevent excessive height on large screens [[1]] */
+    height: auto; /* Allow flexible height */
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio while covering area [[5]] */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+/* 3. Position arrows above the image */
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 2; /* Ensure arrows are above image */
+    pointer-events: none; /* Allow clicks to pass through to underlying elements if needed */
+}
+
+.nav-arrow {
+    pointer-events: auto; /* Re-enable clickability for arrows */
+    /* Existing styles remain */
+}
+
+
+/* Footer Contact Labels */
+.footer-contact .label {
+    font-size: 14px;
+    color: #adb5bd;      /* muted grey */
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  
+  /* Address Blocks Container */
+  .footer-contact .addresses {
+    display: flex;
+    gap: 48px;
+    margin-top: 16px;
+  }
+  
+  /* Individual Address Box */
+  .footer-contact .address-block {
+    flex: 1;
+  }
+  
+  /* Address Text */
+  .footer-contact .contact-address {
+    color: #FFD700;      /* gold */
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  
+  /* Responsive: stack on small screens */
+  @media (max-width: 768px) {
+    .footer-contact .addresses {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+  
+  .footer-contact .contact-phone {
+    white-space: nowrap;
+  }
+  

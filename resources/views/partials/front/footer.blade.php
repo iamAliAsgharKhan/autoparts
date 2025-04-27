@@ -66,27 +66,43 @@
 
         <div class="footer-contact">
             <h4>Get in Touch</h4>
-            <p>Call or WhatsApp</p>
-            <p class="contact-phone">M.Basharat : +92 306 7980000</p>
+          
+            <p class="label">Call or WhatsApp</p>
+            <p class="contact-phone">M. Arsalan (Australia) : +61 426 634 944</p>
+            <p class="contact-phone">M. Basharat: +92 306 798 0000</p>
+            <p class="contact-phone">M. Ejaz: +92 332 506 9113</p>
+          
+            <p class="label">Email Us</p>
+            <p class="contact-email">mbasharat78@gmail.com</p>
+          
+            <div class="addresses">
+              <div class="address-block">
+                <p class="label">Address 1</p>
+                <p class="contact-address">
+                  Friend Autos near Attock pump<br>
+                  IJP Road, Kacha Stop<br>
+                  Rawalpindi, Punjab
+                </p>
+              </div>
+              <div class="address-block">
+                <p class="label">Address 2</p>
+                <p class="contact-address">
+                  Perth, WA<br>
+                  Australia
+                </p>
+              </div>
+            </div>
+          </div>
+          
 
-            <p class="contact-phone">M.Ejaz : +92 332 5069113</p>
-            <p>Email Us</p>
-            <p class="contact-email">
-            mbasharat78@gmail.com</p>
-
-            <p>Address</p>
-            <p class="contact-email">
-                Friend Autos near Attock pump IJP Road Kacha Stop, Rawalpindi, Punjab</p>
-        </div>
-
-        <div class="footer-newsletter">
+        {{-- <div class="footer-newsletter">
             <h4>Stay Updated</h4>
             <p>Get exciting discounts on your email address</p>
             <form class="newsletter-form">
                 <input type="email" placeholder="Your email address" class="newsletter-input">
                 <button type="submit" class="subscribe-button">Subscribe</button>
             </form>
-        </div>
+        </div> --}}
     </div>
 </footer>
 
