@@ -48,54 +48,6 @@
 
 
 
-<section class="projects">
-    <div class="container">
-        <h2>AutoStore Projects</h2>
-        <p class="projects-description">Check out custom car modifications done by team of experts at AutoStore workshop!</p>
-
-        {{-- Check if there are enough projects to make a slider meaningful --}}
-        @if($projects->count() > 0)
-            <div class="projects-slider-container"> {{-- Outer container for overflow --}}
-                <div class="projects-slider-track"> {{-- Inner container that slides --}}
-                    {{-- Loop through all fetched projects --}}
-                    @foreach($projects as $project)
-                        <div class="project-card"> {{-- Each project is a slide --}}
-                            <a href="{{ route('projects.show', $project) }}" class="project-card-link"> {{-- Link the whole card --}}
-                                <div class="before-after">
-                                    <div class="image-container">
-                                        @php $beforeImage = $project->beforeImages->first(); @endphp
-                                        <img src="{{ $beforeImage ? asset('storage/' . $beforeImage->image_path) : asset('images/placeholder_before.png') }}"
-                                             alt="Before - {{ $project->headline }}">
-                                        <span class="image-label">Before</span>
-                                    </div>
-                                    <div class="image-container">
-                                        @php $afterImage = $project->afterImages->first(); @endphp
-                                        <img src="{{ $afterImage ? asset('storage/' . $afterImage->image_path) : asset('images/placeholder_after.png') }}"
-                                             alt="After - {{ $project->headline }}">
-                                        <span class="image-label">After</span>
-                                    </div>
-                                </div>
-                                <h3>{{ $project->headline }}</h3>
-                            </a>
-                        </div>
-                    @endforeach
-                </div> {{-- End slider track --}}
-
-                 {{-- Optional: Add Prev/Next Buttons if needed later
-                 <button class="slider-nav prev" aria-label="Previous Slide"><</button>
-                 <button class="slider-nav next" aria-label="Next Slide">></button>
-                 --}}
-
-            </div> {{-- End slider container --}}
-        @else
-            {{-- Displayed if $projects collection is empty --}}
-            <div class="col-12">
-                <p class="text-center text-muted mt-4">No projects available at the moment. Check back soon!</p>
-            </div>
-        @endif
-
-    </div>
-</section>
 
 
 
